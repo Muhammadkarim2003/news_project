@@ -1,10 +1,15 @@
 from django.urls import path
-from .views import(news_list, list_detail, HomePageView, ContactPageView, page404,
-                   LocalNewsView, TechnologyNewsView, SportNewsView, ForeignNewsView)
+from .views import(news_list, news_detail, HomePageView, ContactPageView, page404,
+LocalNewsView, TechnologyNewsView, SportNewsView,
+                   ForeignNewsView,NewsUpdateView, NewsDeleteView, NewsCreadeView,
+                   admin_page_view, SearchResultList)
 
 urlpatterns = [
     path("news/", news_list, name="all_news_list"),
-    path("detail/<slug:news>/", list_detail, name="news_detail_page"),
+    path('news/create/', NewsCreadeView.as_view(), name='news_create'),
+    path("news/<slug:news>/", news_detail, name="news_detail_page"),
+    path('news/<slug>/edit/', NewsUpdateView.as_view(), name='news_update'),
+    path('news/<slug>/news/', NewsDeleteView.as_view(), name='news_delete'),
     path("", HomePageView.as_view(), name='home_page'),
     path("contact-us/", ContactPageView.as_view(), name="contact_page"),
     path("404_page", page404, name='404_page'),
@@ -12,4 +17,6 @@ urlpatterns = [
     path('foreign/news/', ForeignNewsView.as_view(), name='foreign_news_page'),
     path('technology/', TechnologyNewsView.as_view(), name='technology_news_page'),
     path('sport/', SportNewsView.as_view(), name='sport_news_page'),
+    path('adminpage/', admin_page_view, name='admin_page'),
+    path('search/', SearchResultList.as_view(), name='search_results')
 ]

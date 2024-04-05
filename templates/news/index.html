@@ -2,6 +2,8 @@
 {% load static %}
 {% block title %} Bosh sahifa {% endblock title %}
 {% block content %}
+{% load hitcount_tags %}
+
   <section id="sliderSection">
     <div class="row">
       <div class="col-lg-8 col-md-8 col-sm-8">
@@ -25,7 +27,9 @@
               {% for news in news_list %}
               <li>
                 <div class="media"> <a href="{{ news.get_absolute_url }}" class="media-left"> <img alt="" src="{{ news.images.url }}"> </a>
-                  <div class="media-body"> <a href="{{ news.get_absolute_url }}" class="catg_title">{{ news.title }}</a> </div>
+                  <div class="media-body"> <a href="{{ news.get_absolute_url }}" class="catg_title">{{ news.title }}</a>
+                  </div>
+                    <p><i class="fa fa-eye" aria-hidden="true"></i> {% get_hit_count for news %}</p>
                 </div>
               </li>
             {% endfor %}
@@ -41,7 +45,7 @@
       <div class="col-lg-8 col-md-8 col-sm-8">
         <div class="left_content">
           <div class="single_post_content">
-            <h2><span>Mahalliy</span></h2>
+            <h2><span>Mahalliy111</span></h2>
             <div class="single_post_content_left">
               <ul class="business_catgnav  wow fadeInDown">
                 {% for mahalliy in mahalliy_xabarlar %}
@@ -50,6 +54,7 @@
                   <figure class="bsbig_fig"> <a href="{{ mahalliy.get_absolute_url }}" class="featured_img"> <img alt="" src="{{ mahalliy.images.url }}"> <span class="overlay"></span> </a>
                     <figcaption> <a href="{{ mahalliy.get_absolute_url }}">{{mahalliy.title | truncatewords:5}}</a> </figcaption>
                     <p>{{mahalliy.title}}</p>
+                    <p><i class="fa fa-eye" aria-hidden="true"></i> {% get_hit_count for mahalliy %}</p>
                   </figure>
                 </li>
                 {% endif %}
@@ -63,7 +68,9 @@
                 <li>
                   <div class="media wow fadeInDown"> <a href="{{ mahalliy.get_absolute_url }}" class="media-left"> <img alt="" src="{{ mahalliy.images.url }}"> </a>
                     <div class="media-body"> <a href="{{ mahalliy.get_absolute_url }}">{{mahalliy.title}}</a> </div>
+                    <p><i class="fa fa-eye" aria-hidden="true"></i> {% get_hit_count for mahalliy %}</p>
                   </div>
+
                   {% endif %}
                   {% endfor %}
                 </li>
@@ -81,6 +88,7 @@
                     <figure class="bsbig_fig"> <a href="{{ xorij.get_absolute_url }}" class="featured_img"> <img alt="" src="{{ xorij.images.url }}"> <span class="overlay"></span> </a>
                       <figcaption> <a href="{{ xorij.get_absolute_url }}">{{ xorij.title }}}}</a> </figcaption>
                       <p>{{ xorij.body | truncatewords:10 }}</p>
+                      <p><i class="fa fa-eye" aria-hidden="true"></i> {% get_hit_count for xorij %}</p>
                     </figure>
                   </li>
                   {% endif %}
@@ -92,6 +100,7 @@
                   <li>
                     <div class="media wow fadeInDown"> <a href="{{ xorij.get_absolute_url }}" class="media-left"> <img alt="" src="{{ xorij.images.url }}"> </a>
                       <div class="media-body"> <a href="{{ xorij.get_absolute_url }}" class="catg_title">{{ xorij.title }}</a> </div>
+                      <p><i class="fa fa-eye" aria-hidden="true"></i> {% get_hit_count for xorij %}</p>
                     </div>
                   </li>
                   {% endif %}
@@ -109,6 +118,7 @@
                     <figure class="bsbig_fig wow fadeInDown"> <a href="{{ texnology.get_absolute_url }}" class="featured_img"> <img alt="" src="{{ texnology.images.url }}"> <span class="overlay"></span> </a>
                       <figcaption> <a href="{{ texnology.get_absolute_url }}">{{ texnology.title }}</a> </figcaption>
                       <p>{{ texnology.body | truncatewords:10 }}</p>
+                      <p><i class="fa fa-eye" aria-hidden="true"></i> {% get_hit_count for texnology %}</p>
                     </figure>
                   </li>
                   {% endif %}
@@ -120,6 +130,7 @@
                   <li>
                     <div class="media wow fadeInDown"> <a href="{{ texnology.get_absolute_url }}" class="media-left"> <img alt="" src="{{ texnology.images.url }}"> </a>
                       <div class="media-body"> <a href="{{ texnology.get_absolute_url }}" class="catg_title"> {{ texnology.title }}</a> </div>
+                      <p><i class="fa fa-eye" aria-hidden="true"></i> {% get_hit_count for texnology %}</p>
                     </div>
                   </li>
                   {% endif %}
