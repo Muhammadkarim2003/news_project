@@ -170,6 +170,8 @@ class NewsCreadeView(OnlyLoggedSuperuser, CreateView):
     model = News
     template_name = 'crud/news_creat.html'
     fields = ['title', 'slug', 'body', 'images', 'category', 'status']
+
+
 @login_required
 @user_passes_test(lambda u:u.is_superuser)
 def admin_page_view(request):
